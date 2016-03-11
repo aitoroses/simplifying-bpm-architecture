@@ -6,7 +6,7 @@ People desire systems that do things magically without having to write any code.
 
 BPM tried to solve this problem by doing some things graphically, at least to enable the understanding of business people of what an application is designed to act like.
 
-They removed the writing of a lot of unfamiliar syntax for non developer people and replaced it with draggind a dropping some symbols into the screen to tell the computer what to do. This is actually another way of coding but it's disguised.
+They removed the writing of a lot of unfamiliar syntax for non developer people and replaced it with dragging a dropping some symbols into the screen to tell the computer what to do. This is actually another way of coding but it's disguised.
 
 Let's be pragmatic, it's imposible to replace the entire possible combinations of code that could be written with a bunch of symbols, that's simply unrealistic. You can rely on BPM to define state transitions but, at the end of the day any other activity will require to write code to perform custom tasks.
 
@@ -100,14 +100,13 @@ Our developers just have to **learn once** how to develop applications, and thos
 * Simplified learning curve
 
 
-* Gain expertise quickly 
+* Gain expertise quickly
 
 
 * Become profitable
 
 
 * No coupling to an specific product
-
 
 
 
@@ -125,9 +124,11 @@ It's pretty obvious that we came with an implementation of that idea, and this i
 
 #### Wrapping the Workflow Engine's API
 
-Before we got this idea, we started proxying Oracle's BPM Workflow engine in 11g which exposes SOAP services. We mapped then to equivalent REST Services in an RPC style. 
+Before we got this idea, we started proxying Oracle's BPM Workflow engine in 11g which exposes SOAP services. We mapped them to equivalent REST Services in a RPC style. 
 
-That unlocked the capability for easily writing RIA applications (Rich Internet Applications) without having to deal with ADF (Oracle's stack framework). And even better, we now were able to write them on the clientside.
+That unlocked the capability for easily writing RIA applications (Rich Internet Applications) and still allowing the use and the benefits that a BPM can offer.
+
+ And even better, we now were able to write them on the clientside.
 
 
 
@@ -182,7 +183,6 @@ This are the benefits we consider:
 
     > Since Serverside UI Rendering, string processing at the end, is one of the most heavy operations for a CPU, having a lot of users that use an application exponentially increases the CPU usage and decreases performance of the server.
   - Todays computers have multiple cores and high amounts of RAM. So doing clientside applications is a way of clustering by using your users computers.
-
 
 
 # The result
@@ -260,7 +260,9 @@ Zero code myth is not something realistic, and if it was, we would need an infin
 
 Anything else is more likely to be delegated to other systems so they can be built in an optimal way and with the correct patterns and abstractions.
 
-Now we have unlocked a way to build BPM applications using the best of that world together with the technology of our choice, and the good news, this solution it's not coupled to any BPM product at all.
+Now we have unlocked a way to build applications with any technology stack of our choice but we are still able to use the best of BPM together.
+
+And the good news, this solution it's not coupled to any BPM product at all.
 
 
 
