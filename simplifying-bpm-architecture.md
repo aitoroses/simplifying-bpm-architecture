@@ -261,3 +261,9 @@ Zero code myth is not something realistic, and if it was, we would need an infin
 Anything else is more likely to be delegated to other systems so they can be built in an optimal way and with the correct patterns and abstractions.
 
 Now we have unlocked a way to build BPM applications using the best of that world together with the technology of our choice, and the good news, this solution it's not coupled to any BPM product at all.
+
+
+
+Until next time,
+
+Aitor
