@@ -12,27 +12,33 @@ Let's be pragmatic, it's imposible to replace the entire possible combinations o
 
 Anyway, zero code paradigm it's a problem itself and something not desirable because it comes without real flexibility.
 
-The good thing, is that BPM solves a problem fairly easy in a declarative wa, that in traditional imperative style coding (java) is more obscure and hard to solve, that is state and state transition management. 
+The good thing, is that BPM solves a problem fairly easy in a visual declarative way, that in traditional imperative style coding (java) is more obscure and hard to solve, that is state transition and management. 
 
-That sounds beautiful, a system in which we can declaratively define what things are, and how they change their state, again, **declaratively** with symbols. Then it's easy to imagine some interception points that with code are able to do the unimaginable.
+That sounds beautiful, a system in which we can declaratively define what things are, and how they change their state, again, **declaratively** with a few symbols.
+
+Then it's easy to imagine some interception points that with code are able to do fill whatever need we want to fulfill.
+
+You could even declare visually at some point "Ok coffee maker, now make me some coffee!", of course, it's a joke… But you get the idea.
 
 
 
-# The bad
+I now want to enumerate the pros and cons of a BPM product.
+
+### The bad
 
 Todays BPM solutions are very monolithic and they have some really bad disadvantages:
 
 - They get outdated fast because the release cycle is slow.
 
-- They are an AllInOne solutions instead of TakeWhatYouNeed, which is normally the desired case.
+- They are always *AllInOne* solutions instead of *TakeWhatYouNeed*, which is normally the desired case.
 
-- They are very heavy weighted
+- They are very heavy weighted.
 
-- They are usually coupled to some IDE's
+- They are usually coupled to some IDE's.
 
-- They are coupled to the technology used by it's frameworks
+- They are coupled to the technology used by it's own frameworks.
 
-- They are highly opinionated
+- They are highly opinionated.
 
 - Because they are normally based on enterprise Java stacks, they require specific application servers to run, what is not always the case.
 
@@ -40,15 +46,20 @@ Todays BPM solutions are very monolithic and they have some really bad disadvant
 
   ​
 
-# The good
+### The good
 
 In the other hand, BPM solutions have come with some builtin interesting features:
 
+- They are based on standards.
+
+
 - They usually provide a Security Layer, that can be replaced or extended.
 
-- They provide abstractions for users, organizations and membership
+- They provide abstractions for users, organizations and memberships.
 
-- They implement the core concept of a "workflow engine" and a "workflow editor"
+- They implement auditing systems.
+
+- They implement the concept of a **workflow engine** and a **workflow editor**.
 
   ​
 
@@ -58,13 +69,15 @@ In the other hand, BPM solutions have come with some builtin interesting feature
 
 ### The idea
 
-If we were able to abstract what a workflow engine API should look like in a generic way and create some authentication/authorization layer that could work across BPM/whatever system, with a small provider based setup.
+What If we were able to abstract what a workflow engine API should look like in a generic way and create some authentication/authorization layer that could work across BPM/whatever system with a small provider based setup?
 
-Briefly said, use facades for the core things that BPM is good at and designed for, just to be agnostic of what technology we can use.
+Briefly said, can we use facades for the core things that BPM is good at and designed for, just to be agnostic of what technology we can use?
 
-In that scenario, we break the boundaries imposed by the tech monolith and now we can start writing applications by loosely interfacing with thoose facade API's and become the real owners of all the data that flows inside the system.
+The answer is yes.
 
-This opens the door to rapidly prototyping and mocking every part of our application and to do the implementation in isolation from other layers.
+In that scenario, we have break the boundaries imposed by the tech monolith and now we can start writing applications by loosely interfacing with thoose facade API's and become the real owners of all the data that flows inside the system.
+
+This opens the door to rapidly prototyping and mocking every part of our application and to do the implementation in isolation from other layers. That finally leads our teams to be faster and to understand what is happening inside in an easier way.
 
 
 
@@ -72,24 +85,29 @@ This opens the door to rapidly prototyping and mocking every part of our applica
 
 This section has a more philosophical intention and tries to convince about the power of the idea above.
 
-> Abstracting this away, we now could consider the BPM the backend of the whole domain, and our workspace plus api's plus applications the frontend part, i'm not talking about UI. I'm disecting it in the same sense that compilers have frontends (Java or Objective-C) and backends (JVM or LLVM). So backends are compile targets for frontends, but they theoretically could run over any the available backends with the right compiler.
+> Abstracting this away, we now could consider the BPM the backend of the whole domain, and our workspace plus api's plus applications it's frontend, i'm not talking about UI. I'm disecting it in the same sense that compilers have frontends (Java or Objective-C) and backends (JVM or LLVM). So backends are compile targets for frontends, but they theoretically could run over any the available backends with the right compiler.
 
 This means that we could use other backend BPM while mantaining the same Frontend (UI, API contracts, facades..). This makes the BPM a plug-in and would let it care about the state of the applications and it's transitions, that generally is the hardest part of any application and BPM solves it just with "drag & drop".
 
 Enterprise world does not have this POV yet, but decoupling and simplifiying architecture allows in a future to change the backend technology or upgrade it while keeping all the end to end systems working in the same way.
 
-So basically, since BPM products implement standards, and they are implementations of the same concepts, let's abstract them and consider it an interchangable brain/core for our applications that solves easily a very hard problem even nowadays.
+So basically, since BPM products implement standards, and they are implementations of the same concepts, let's abstract them and consider it an interchangable brain/core for our applications that solves easily a very hard problem, **state**.
 
 Finally, from a development point of view, it's important to highlight that this comes with a very interesting implicit benefit: 
 
-> Our developers just have to **learn once** how to develop applications, and those will **run everywhere**, on top of any BPM.
->
-> - Simplified learning curve
+Our developers just have to **learn once** how to develop applications, and those will **run everywhere**, on top of any BPM.
+
+* Simplified learning curve
 
 
-> - Gain expertise quickly 
-> - Become profitable
-> - No coupling to an specific product
+* Gain expertise quickly 
+
+
+* Become profitable
+
+
+* No coupling to an specific product
+
 
 
 
@@ -98,6 +116,10 @@ Finally, from a development point of view, it's important to highlight that this
 
 
 # Our solution
+
+
+
+It's pretty obvious that we came with an implementation of that idea, and this is how we did it.
 
 
 
@@ -122,7 +144,7 @@ Our next iteration was to wrap it instead doing proxy. At this point we where ab
 Over this abstraction we can integrate any authentication protocol, and the applications just use.. Tokens!
 
 
-As an example, we implemented SSO (Single-Sign-On) feature using this approach
+As an example, we implemented SSO (Single-Sign-On) feature using this approach.
 
 Those can contain any information about the user and his memberships. They can have expiracy time, be revokable.. whatever, but they are stateless and that makes them easy to be used by any server or client, even native ones.
 
