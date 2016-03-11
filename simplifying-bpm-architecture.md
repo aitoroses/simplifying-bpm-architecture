@@ -186,7 +186,7 @@ The login is our entry point to the workspace.
 
 This is how our entry point looks like for one of our clients.
 
-![login](file:///Users/Grayfox/Documents/Posts/simplifying-bpm-architecture/images/login.png)
+![login](https://raw.githubusercontent.com/aitoroses/simplifying-bpm-architecture/master/images/login.png)
 
 
 
@@ -202,7 +202,7 @@ Same as login, the style and tiles layout is completely customizable.
 
 
 
-![dashboard](file:///Users/Grayfox/Documents/Posts/simplifying-bpm-architecture/images/tile-view.png)
+![dashboard](https://raw.githubusercontent.com/aitoroses/simplifying-bpm-architecture/master/images/tile-view.png)
 
 
 
@@ -222,7 +222,7 @@ Just the extension of the dashboard:
 
   ​
 
-![default-app](file:///Users/Grayfox/Documents/Posts/simplifying-bpm-architecture/images/default-app.png)
+![default-app](https://raw.githubusercontent.com/aitoroses/simplifying-bpm-architecture/master/images/default-app.png)
 
 
 
